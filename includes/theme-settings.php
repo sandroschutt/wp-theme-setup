@@ -4,13 +4,16 @@ namespace ThemeSetup;
 require_once dirname(__FILE__) . "/theme-public.php";
 require_once dirname(__FILE__) . "/theme-admin.php";
 
+use ThemeSetup\ThemeAdminSettings;
+use ThemeSetup\ThemePublicSettings;
+
 class ThemeSettings {
     private $public;
     private $admin;
 
     public function __construct() {
-        $this->public = new ThemeSettingsPublicSettings();
-        $this->admin = new ThemeSettingsAdminSettings();
+        $this->public = new ThemePublicSettings();
+        $this->admin = new ThemeAdminSettings();
         $this->activation_hook();
         $this->action_hooks();
         $this->filter_hooks();

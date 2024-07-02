@@ -8,33 +8,34 @@ class ThemePublicSettings implements ThemeSettingsInterface
 {
     public function enqueue_scripts()
     {
-        if (is_front_page()) {
-            // enqueue front page scripts
-        }
+        // if (is_front_page()) {
+        //     // enqueue front page scripts
+        // }
 
-        if (is_singular('post')) {
-            // enqueue single post scripts
-        }
+        // if (is_singular('post')) {
+        //     // enqueue single post scripts
+        // }
 
-        if (is_home()) {
-            // enqueue blog home scripts
-        }
+        // if (is_home()) {
+        //     // enqueue blog home scripts
+        // }
 
-        if (is_singular('post-type')) {
-            // enqueue single post type scripts
-        }
+        // if (is_singular('post-type')) {
+        // enqueue single post type scripts
+        // }
 
-        if (is_post_type_archive('post-type')) {
-            // enqueue post type archive scripts
-        }
+        // if (is_post_type_archive('post-type')) {
+        // enqueue post type archive scripts
+        // }
 
-        if (get_page_template_slug() === 'page-slug' || is_page("page-slug")) {
-            // enqueue specific pages' scripts
-        }
+        // if (get_page_template_slug() === 'page-slug' || is_page("page-slug")) {
+        // enqueue specific pages' scripts
+        // }
     }
 
     public function enqueue_styles()
     {
+        wp_enqueue_style('parent-style',get_parent_theme_file_uri('style.css'));
         wp_enqueue_style('style', get_theme_file_uri() . '/assets/css/build/style.css');
         wp_enqueue_style('root-variables', get_theme_file_uri() . '/assets/css/root.css');
         wp_enqueue_style('screen-small', get_theme_file_uri() . '/assets/css/build/screen/small.css');
@@ -50,17 +51,17 @@ class ThemePublicSettings implements ThemeSettingsInterface
             wp_enqueue_style('single-post');
         }
 
-        if (is_singular('post-type')) {
-            // enqueue single post type styles
-        }
+        // if (is_singular('post-type')) {
+        //     // enqueue single post type styles
+        // }
 
-        if (is_post_type_archive('post-type')) {
-            // enqueue post type's archive styles
-        }
+        // if (is_post_type_archive('post-type')) {
+        //     // enqueue post type's archive styles
+        // }
 
-        if (get_page_template_slug() === 'page-slug' || is_page('page-slug')) {
-            // enqueue specific page styles
-        }
+        // if (get_page_template_slug() === 'page-slug' || is_page('page-slug')) {
+        //     // enqueue specific page styles
+        // }
     }
 
     function add_public_modules($tag, $handle, $src)
@@ -68,7 +69,7 @@ class ThemePublicSettings implements ThemeSettingsInterface
         /**
          * Turns all javascript files pointed in the $scripts array into ES6 modules
          * All scripts must be registered before its handle is passed to the $scripts array
-        */
+         */
 
         $scripts = array(
             '',

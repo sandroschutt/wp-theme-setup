@@ -36,18 +36,17 @@ class ThemePublicSettings implements ThemeSettingsInterface
     public function enqueue_styles()
     {
         wp_enqueue_style('parent-style',get_parent_theme_file_uri('style.css'));
-        wp_enqueue_style('style', get_theme_file_uri() . '/assets/css/build/style.css');
-        wp_enqueue_style('root-variables', get_theme_file_uri() . '/assets/css/root.css');
-        wp_enqueue_style('screen-small', get_theme_file_uri() . '/assets/css/build/screen/small.css');
-        wp_enqueue_style('screen-medium', get_theme_file_uri() . '/assets/css/build/screen/medium.css');
+        wp_enqueue_style('style', get_theme_file_uri() . '/assets/sass/build/style.css');
+        wp_enqueue_style('screen-small', get_theme_file_uri() . '/assets/sass/build/screen/small.css');
+        wp_enqueue_style('screen-medium', get_theme_file_uri() . '/assets/sass/build/screen/medium.css');
 
         if (is_front_page()) {
-            wp_register_style('home', get_theme_file_uri() . '/assets/css/build/home.css');
+            wp_register_style('home', get_theme_file_uri() . '/assets/sass/build/home.css');
             wp_enqueue_style('home');
         }
 
         if (is_singular('post')) {
-            wp_register_style('single-post', get_theme_file_uri() . '/assets/css/build/single-post.css');
+            wp_register_style('single-post', get_theme_file_uri() . '/assets/sass/build/single-post.css');
             wp_enqueue_style('single-post');
         }
 

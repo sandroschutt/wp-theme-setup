@@ -36,7 +36,7 @@ Setup your code and get to work!
 - URL: https://github.com/sandroschutt/wp-theme-setup/
 - Version: 1.0.0
 
-#### Test with:
+#### Tested with:
 - PHP: 8.2
 - WordPress: 6.5
 - Themes: classic, Gutenberg, Elementor, Vamtam
@@ -54,6 +54,9 @@ cd wp-content/themes && git clone https://github.com/sandroschutt/wp-theme-setup
 If you downloaded the project to your machine through the direct download button, just move it all into the themes folder located in /wp-content.
 
 After that, just activate the theme in the wp-admin Appearence->Themes page.
+
+> [!ATTENTION]
+> This child theme defaults to Twenty Twenty Four as the parent theme. Don't forgrt to change the style.css file in the root folder.
 <br/><br/>
 ## Usage
 Load your custom frontend scripts, styles and PHP in the /includes/theme-public.php file.
@@ -79,39 +82,13 @@ function is_front_page()
 Call it inside theme-settings.php
 <br/><br/>
 ```
-// includes/theme-settings.php
-
-class ThemeSettings {
-    private $public;
-    private $admin;
-
-    public function __construct() {
-        $this->public = new ThemeSettingsPublicSettings();
-        $this->admin = new ThemeSettingsAdminSettings();
-        $this->activation_hook();
-        $this->action_hooks();
-        $this->filter_hooks();
-    }
-
     public function action_hooks() {
-        add_action('wp_enqueue_scripts', array($this->admin, 'enqueue_scripts'));
-        add_action('wp_enqueue_scripts', array($this->admin, 'enqueue_styles'));
-        add_action('wp_enqueue_scripts', array($this->public, 'enqueue_scripts'));
-        add_action('wp_enqueue_scripts', array($this->public, 'enqueue_styles'));
-        add_action('admin_notices', array($this->admin, 'admin_notices'));
+        /**
+        /* Function hook calls...
+        */
 
         $this->public->is_front_page();
     }
-
-    public function filter_hooks() {
-        add_filter("script_loader_tag", array($this->public, 'add_public_modules'), 10, 3);
-    }
-
-    public function activation_hook() {
-        // Define actions to be performed upon activation
-        // add_action('after_switch_theme', array($this->admin, 'create_theme_pages'));
-    }
-}
 ```
 <br/><br/>
 

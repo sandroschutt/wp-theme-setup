@@ -6,61 +6,33 @@ require_once dirname(dirname(__FILE__)) . "/includes/theme-interface.php";
 
 class ThemePublicSettings implements ThemeSettingsInterface
 {
+    private $stylesPath;
+    private $scriptsPath;
+
+    public function __construct()
+    {
+        $this->stylesPath = get_theme_file_uri() . "/assets/sass/build/";
+        $this->scriptsPath = get_theme_file_uri() . "/assets/javascript/";
+    }
+
     public function enqueue_scripts()
     {
-        // if (is_front_page()) {
-        //     // enqueue front page scripts
-        // }
-
-        // if (is_singular('post')) {
-        //     // enqueue single post scripts
-        // }
-
-        // if (is_home()) {
-        //     // enqueue blog home scripts
-        // }
-
-        // if (is_singular('post-type')) {
-        // enqueue single post type scripts
-        // }
-
-        // if (is_post_type_archive('post-type')) {
-        // enqueue post type archive scripts
-        // }
-
-        // if (get_page_template_slug() === 'page-slug' || is_page("page-slug")) {
-        // enqueue specific pages' scripts
-        // }
+        wp_enqueue_script('theme-setup', $this->scriptsPath . 'theme-setup.js');
     }
 
     public function enqueue_styles()
     {
-        wp_enqueue_style('parent-style',get_parent_theme_file_uri('style.css'));
-        wp_enqueue_style('style', get_theme_file_uri() . '/assets/sass/build/style.css');
-        wp_enqueue_style('screen-small', get_theme_file_uri() . '/assets/sass/build/screen/small.css');
-        wp_enqueue_style('screen-medium', get_theme_file_uri() . '/assets/sass/build/screen/medium.css');
+        wp_enqueue_style('parent-style', get_parent_theme_file_uri('style.css'));
 
         if (is_front_page()) {
-            wp_register_style('home', get_theme_file_uri() . '/assets/sass/build/home.css');
+            wp_register_style('home', $this->stylesPath . 'home.css');
             wp_enqueue_style('home');
         }
 
         if (is_singular('post')) {
-            wp_register_style('single-post', get_theme_file_uri() . '/assets/sass/build/single-post.css');
+            wp_register_style('single-post', $this->stylesPath . 'single-post.css');
             wp_enqueue_style('single-post');
         }
-
-        // if (is_singular('post-type')) {
-        //     // enqueue single post type styles
-        // }
-
-        // if (is_post_type_archive('post-type')) {
-        //     // enqueue post type's archive styles
-        // }
-
-        // if (get_page_template_slug() === 'page-slug' || is_page('page-slug')) {
-        //     // enqueue specific page styles
-        // }
     }
 
     function add_public_modules($tag, $handle, $src)

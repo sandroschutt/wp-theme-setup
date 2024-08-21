@@ -55,7 +55,7 @@ If you downloaded the project to your machine through the direct download button
 
 After that, just activate the theme in the wp-admin Appearence->Themes page.
 
-> [!ATTENTION]
+> [!NOTE]
 > This child theme defaults to Twenty Twenty Four as the parent theme. Don't forgrt to change the style.css file in the root folder.
 <br/><br/>
 ## Usage

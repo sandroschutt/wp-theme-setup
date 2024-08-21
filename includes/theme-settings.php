@@ -20,8 +20,8 @@ class ThemeSettings {
     }
 
     public function action_hooks() {
-        add_action('wp_enqueue_scripts', array($this->admin, 'enqueue_scripts'));
-        add_action('wp_enqueue_scripts', array($this->admin, 'enqueue_styles'));
+        add_action('admin_enqueue_scripts', array($this->admin, 'enqueue_scripts'));
+        add_action('admin_enqueue_scripts', array($this->admin, 'enqueue_styles'));
         add_action('wp_enqueue_scripts', array($this->public, 'enqueue_scripts'));
         add_action('wp_enqueue_scripts', array($this->public, 'enqueue_styles'));
         add_action('admin_notices', array($this->admin, 'admin_notices'));

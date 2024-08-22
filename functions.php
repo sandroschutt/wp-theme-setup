@@ -6,7 +6,7 @@
 
 namespace ThemeSetup;
 
-require dirname(__FILE__) . "/includes/theme-settings.php";
+require dirname(__FILE__) . "/includes/ThemeSettings.php";
 
 $themeSettings = new ThemeSettings();
 

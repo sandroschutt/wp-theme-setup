@@ -2,7 +2,7 @@
 
 namespace ThemeSetup;
 
-require_once dirname(dirname(__FILE__)) . "/includes/theme-interface.php";
+require_once dirname(dirname(__FILE__)) . "/includes/ThemeInterface.php";
 
 class ThemePublicSettings implements ThemeSettingsInterface
 {
@@ -15,12 +15,12 @@ class ThemePublicSettings implements ThemeSettingsInterface
         $this->scriptsPath = get_theme_file_uri() . "/assets/javascript/";
     }
 
-    public function enqueue_scripts()
+    public function enqueueScripts()
     {
         wp_enqueue_script('theme-setup', $this->scriptsPath . 'theme-setup.js');
     }
 
-    public function enqueue_styles()
+    public function enqueueStyles()
     {
         wp_enqueue_style('parent-style', get_parent_theme_file_uri('style.css'));
 
@@ -35,7 +35,7 @@ class ThemePublicSettings implements ThemeSettingsInterface
         }
     }
 
-    function add_public_modules($tag, $handle, $src)
+    function addPublicModules($tag, $handle, $src)
     {
         /**
          * Turns all javascript files pointed in the $scripts array into ES6 modules
@@ -46,7 +46,7 @@ class ThemePublicSettings implements ThemeSettingsInterface
             '',
         );
 
-        foreach ($scripts as $key => $script) {
+        foreach ($scripts as $script) {
             if ($script === $handle) {
                 $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
             }

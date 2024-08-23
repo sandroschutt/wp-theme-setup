@@ -1,7 +1,7 @@
 <?php
 function WPChildThemeBoilerplateAutoload($class) {
     $prefix = 'WPChildThemeBoilerplate\\';
-    $base_dir = __DIR__ . '/includes/';
+    $base_dir = __DIR__ . '/';
 
     $len = strlen($prefix);
     if (strncmp($prefix, $class, $len) !== 0) {

@@ -3,10 +3,10 @@
 /**
  * Theme settings are handled by the ThemeSettings class.
  * Admin logic, javascript and styles are handled by AdminSettings class.
- * Public logic, javascript and styles are handled by PublicSettings class.
+ * Admin logic, javascript and styles are handled by AdminSettings class.
  */
 
-require dirname(__FILE__) . "/autoload.php";
+require dirname(__FILE__) . "/includes/autoload.php";
 
 $themeSettings = new WPChildThemeBoilerplate\ThemeSettings();
 

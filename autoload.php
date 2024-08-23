@@ -13,9 +13,6 @@ function WPChildThemeBoilerplateAutoload($class) {
 
     if (file_exists($file)) {
         require $file;
-        echo "Loaded $file successfully.<br>";
-    } else {
-        echo "File $file does not exist.<br>";
     }
 }
 

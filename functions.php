@@ -2,12 +2,12 @@
 
 /**
  * Theme settings are handled by the ThemeSettings class.
+ * Admin logic, javascript and styles are handled by AdminSettings class.
+ * Public logic, javascript and styles are handled by PublicSettings class.
  */
 
-namespace ThemeSetup;
+require dirname(__FILE__) . "/autoload.php";
 
-require dirname(__FILE__) . "/includes/ThemeSettings.php";
-
-$themeSettings = new ThemeSettings();
+$themeSettings = new WPChildThemeBoilerplate\ThemeSettings();
 
 add_filter('wp_lazy_loading_enabled', '__return_false');

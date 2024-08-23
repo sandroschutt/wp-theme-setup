@@ -1,7 +1,7 @@
 <?php
-namespace ThemeSetup;
+namespace WPChildThemeBoilerplate;
 
-interface ThemeSettingsInterface {
+interface SettingsInterface {
     public function enqueueScripts();
     public function enqueueStyles();
 }

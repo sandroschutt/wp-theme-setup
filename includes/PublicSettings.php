@@ -1,10 +1,10 @@
 <?php
 
-namespace ThemeSetup;
+namespace WPChildThemeBoilerplate;
 
-require_once dirname(dirname(__FILE__)) . "/includes/ThemeInterface.php";
+use WPChildThemeBoilerplate\SettingsInterface;
 
-class ThemePublicSettings implements ThemeSettingsInterface
+class PublicSettings implements SettingsInterface
 {
     private $stylesPath;
     private $scriptsPath;
